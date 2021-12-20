@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RecodeTrip.Models.Contato>
+
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<div class="body-destino">
+    <h1 class="titulo">Contatos Recebidos</h1>
+    <hr />
+    <div class="row">
+       
+    @foreach (var item in Model) {
+        <div class="col-sm-12"  style="padding: 1%;">
+            <div class="card">
+                <h5 class="card-header"> @Html.DisplayFor(modelItem => item.Email)</h5>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Assunto)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Mensagem)</p>
+                    <div class="card-btn">
+                         <hr/>
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ID">Editar</a>
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Detalhes</a> 
+                        <a class="btn btn-warning" asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        
+    }
+    
+    </div>
+
+</div>

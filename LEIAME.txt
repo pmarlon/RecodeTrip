@@ -1,0 +1,13 @@
+Apresentação do Projeto:
+
+Na pasta HTML & CSS está a versão estática do front;
+
+Na Pasta Modelagem de Dados estão os Diagramas e O Modelo físico;
+
+
+A Pasta RecodeTrip é o projeto principal.
+
+
+Obs.: O site adiciona dinamicamente os ítens na tela, então deixei alguns inserts no script do banco de dados, é só executar.
+
+Obs2.:  Da mesma forma que os cards são adicionados dinamicamente na página, outros componentes também. como o botão Adicionar Destino/Promoção,  o valor do desconto também muda de acordo com o valor inserido, as estrelas da avaliação também são dinâmicas.

@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+@model IEnumerable<RecodeTrip.Models.Promocao>
+
+@{
+    ViewData["Title"] = "Promoções";
+    ViewBag.texto = "Adicionar Promoção";
+    ViewData["btn"] =  "Promocoes";
+}
+<div class="body-promo">
+<div class="row">
+    @foreach (var item in Model) 
+    {
+            var desconto = (float)item.desconto / 100;
+            var valorDesconto = float.Parse(item.valor) - (desconto * float.Parse(item.valor));
+            var valorFormatado = valorDesconto.ToString("#,0.00", new CultureInfo("pt-BR"));
+            
+            <div class="col-sm-12 col-md-6 col-lg-4"  style="padding: 1%;">
+                <div class="card promo">
+                    <img class="card-img-top" src=@Html.DisplayFor(modelItem => item.Destino.LinkImg) alt=@Html.DisplayFor(modelItem => item.Destino.NomeDestino)>
+                    <div class="tag-desconto">
+                        @if (item.desconto > 0 && item.desconto <= 100)
+                        {
+                            <p>-@Html.DisplayFor(modelItem => item.desconto)%</p>
+                        }
+                        else{<p>@Html.DisplayFor(modelItem => item.desconto)%</p>}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Destino.NomeDestino)</h5>
+                        <ul class="rating"> 
+                        @for(int i = 0; i < item.avaliacao && i < 5; i++)
+                        {
+                            <li><i class="lni-star-filled"></i></li>
+                        }
+                        </ul>
+                        <span class="preco-normal">R$ @Html.DisplayFor(modelItem => item.valor)</span>
+                        <span class="preco-desconto">R$ @valorFormatado</span>  
+                        <div class="card-btn">
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ID">Editar</a> 
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ID">Detalhes</a> 
+                            <a class="btn btn-warning" asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+ }
+</div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model RecodeTrip.Models.Promocao
+
+@{
+    ViewData["Title"] = "Adicionar Promoção";
+}
+
+<div class="body-destino">
+<h1 class="titulo" style="margin-top:0;">Adicionar Promoção</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DestinoID" class="control-label"></label>
+                <select asp-for="DestinoID" class ="form-control" asp-items="ViewBag.DestinoID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="avaliacao" class="control-label"></label>
+                <input asp-for="avaliacao" class="form-control" />
+                <span asp-validation-for="avaliacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="desconto" class="control-label"></label>
+                <input asp-for="desconto" class="form-control" />
+                <span asp-validation-for="desconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor" class="control-label"></label>
+                <input asp-for="valor" class="form-control" />
+                <span asp-validation-for="valor" class="text-danger"></span>
+            </div>
+            <div class="form-group-btn">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+                <a class="btn btn-danger" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</div>

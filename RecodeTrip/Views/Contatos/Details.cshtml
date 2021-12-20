@@ -1,0 +1,41 @@
+﻿@model RecodeTrip.Models.Contato
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div class="body-destino">
+
+<h1 class="titulo">Detalhes</h1>
+
+<div class="detalhes">
+    <h4>Contato</h4>
+    <hr />
+        <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nome)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Email)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Telefone)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Assunto)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Mensagem)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>@Html.DisplayFor(model => model.Nome)</td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+            <td>@Html.DisplayFor(model => model.Telefone)</td>
+            <td>@Html.DisplayFor(model => model.Assunto)</td>
+            <td>@Html.DisplayFor(model => model.Mensagem)</td>
+        </tr>
+    
+        </tbody>
+    </table>
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>
+</div>
